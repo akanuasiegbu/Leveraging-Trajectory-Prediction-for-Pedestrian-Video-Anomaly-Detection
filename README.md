@@ -18,7 +18,9 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
   * more_itertools==8.8.0 
 
 
- You can also use docker with 'docker/Dockerfile'
+ You can also use docker with 'docker/Dockerfile'. Note that I set the PYTHONPATH inside docker file would need to adjust that path
+ "ENV PYTHONPATH "/mnt/roahm/users/akanu/projects/anomalous_pred/custom_functions:/home/akanu".
+
  
  ## BiTrap Data
  BiTrap pkl files can be found [here](https://drive.google.com/drive/folders/1m7dEs0z3P4nJDUgPCFzkMz8rJ9l0WJmB?usp=sharing).
