@@ -20,13 +20,17 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
 
  You can also use docker with 'docker/Dockerfile'
  
- 
- 
+ ## BiTrap Data
+ BiTrap pkl files can be found [here](https://drive.google.com/drive/folders/1ELYuty5kg-J14jrDH66Gv9rhn58O1t9I?usp=sharing).
+ Download pkl file folders for Avenue and ShanghiTech dataset and create a folder called output_bitrap and put both folders inside. 
+ Note the name in_3_out_3_K_1 means input trajectory and output trajectory is set to 3. And K=1 means using Bitrap as unimodal.
  
  ## Training
  Users can train their LSTM models on Avenue and ShanghaiTech by using function lstm_train in models.py
  
- For training BiTrap models refer to [here](https://github.com/umautobots/bidireaction-trajectory-prediction).
+ For training BiTrap models refer forked repo [here](https://github.com/akanuasiegbu/bidireaction-trajectory-prediction).
+ 
+ Trained models for BiTrap can be found [here](https://drive.google.com/drive/folders/1942GF9FIzoqTVOHyW2Qo86s3R1OOSnsg?usp=sharing) 
  
  
  ## Inference 
