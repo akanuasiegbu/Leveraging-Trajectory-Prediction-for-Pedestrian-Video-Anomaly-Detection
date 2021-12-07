@@ -35,7 +35,7 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
  
  
  ## Inference 
- Refer to the main.py for inference. Would need to change the file locations 'train_file', 'test_file', 'pkl_file' in config.py. Note that if running a single input and output, would need to change the input_seq and pred_seq in config.py. However if you want to run muplite experiments at once can look at run_quick function located in main.py as reference. 
+ Refer to the main.py for inference. Would need to change the file locations 'train_file', 'test_file', 'pkl_file' in config.py. Note that if running a single input and output, would need to change the input_seq and pred_seq in config.py. However if you want to run multiple experiments at once can look at run_quick function located in main.py as reference. 
  
  
  
