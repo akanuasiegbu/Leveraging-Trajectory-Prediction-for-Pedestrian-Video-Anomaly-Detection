@@ -43,6 +43,7 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
  
  ## Citation 
 If you found repo useful, feel free to cite.
+```
 @INPROCEEDINGS{9660004,
   author={Kanu-Asiegbu, Asiegbu Miracle and Vasudevan, Ram and Du, Xiaoxiao},
   booktitle={2021 IEEE Symposium Series on Computational Intelligence (SSCI)}, 
@@ -52,3 +53,4 @@ If you found repo useful, feel free to cite.
   number={},
   pages={01-08},
   doi={10.1109/SSCI50451.2021.9660004}}
+```
