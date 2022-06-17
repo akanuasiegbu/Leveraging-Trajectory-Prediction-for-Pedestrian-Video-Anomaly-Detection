@@ -22,13 +22,15 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
  "ENV PYTHONPATH "/mnt/roahm/users/akanu/projects/anomalous_pred/custom_functions:/home/akanu".
 
  
- ## BiTrap Data
+ ## Step 1: Input Data
+ 
+ ### BiTrap Data
  BiTrap pkl files can be found [here](https://drive.google.com/drive/folders/1m7dEs0z3P4nJDUgPCFzkMz8rJ9l0WJmB?usp=sharing).
  
  Download pkl file folders for Avenue and ShanghiTech dataset and create a folder called output_bitrap and put both folders inside. 
  Note the name in_3_out_3_K_1 means input trajectory and output trajectory is set to 3. And K=1 means using Bitrap as unimodal.
  
- ## Training
+ ## Step 2: Training
  Users can train their LSTM models on Avenue and ShanghaiTech by using function lstm_train in models.py
  
  For training BiTrap models refer forked repo [here](https://github.com/akanuasiegbu/bidireaction-trajectory-prediction).
@@ -36,7 +38,7 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
  Trained models for for BiTrap can be found [here](https://drive.google.com/drive/folders/1942GF9FIzoqTVOHyW2Qo86s3R1OOSnsg?usp=sharing) 
  
  
- ## Inference 
+ ## Step 3: Inference 
  Refer to the main.py for inference. Would need to change the file locations 'train_file', 'test_file', 'pkl_file' in config.py. Note that if running a single input and output, would need to change the input_seq and pred_seq in config.py. However if you want to run multiple experiments at once can look at run_quick function located in main.py as reference. 
  
  
