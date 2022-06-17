@@ -22,16 +22,15 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
  "ENV PYTHONPATH "/mnt/roahm/users/akanu/projects/anomalous_pred/custom_functions:/home/akanu".
 
  
- ## Step 1: Input Data
- 
- ### BiTrap Data
- BiTrap pkl files can be found [here](https://drive.google.com/drive/folders/1m7dEs0z3P4nJDUgPCFzkMz8rJ9l0WJmB?usp=sharing).
- 
- Download pkl file folders for Avenue and ShanghiTech dataset and create a folder called output_bitrap and put both folders inside. 
- Note the name in_3_out_3_K_1 means input trajectory and output trajectory is set to 3. And K=1 means using Bitrap as unimodal.
- 
+ ## Step 1: Download Dataset
+ * You use extracted bounding box Avenue and ShanghaiTech trajectoryies.
+ * To want to recreate the input bounding box trajecoty 
+ * Download [Avenue](http://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html) and [ShanghaiTech](https://svip-lab.github.io/dataset/campus_dataset.html) dataset 
+   * Use [Deep-SORT-YOLOv4](https://github.com/LeonLok/Deep-SORT-YOLOv4/tree/a4b7d2e1263e6f1af63381a24436c5db5a4b6e91) commit number a4b7d2e
+  
  ## Step 2: Training
- Users can train their LSTM models on Avenue and ShanghaiTech by using function lstm_train in models.py
+ We used two two models for our experiments Long Short Term Memory (LSTM) Model and BiTrap model.
+ * Users can train their LSTM models on Avenue and ShanghaiTech by using function lstm_train in models.py
  
  For training BiTrap models refer forked repo [here](https://github.com/akanuasiegbu/bidireaction-trajectory-prediction).
  
@@ -39,9 +38,16 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
  
  
  ## Step 3: Inference 
+ 
+ ### BiTrap Data
+ BiTrap pkl files can be found [here](https://drive.google.com/drive/folders/1m7dEs0z3P4nJDUgPCFzkMz8rJ9l0WJmB?usp=sharing).
+ 
+ Download pkl file folders for Avenue and ShanghiTech dataset and create a folder called output_bitrap and put both folders inside. 
+ Note the name in_3_out_3_K_1 means input trajectory and output trajectory is set to 3. And K=1 means using Bitrap as unimodal.
+ 
  Refer to the main.py for inference. Would need to change the file locations 'train_file', 'test_file', 'pkl_file' in config.py. Note that if running a single input and output, would need to change the input_seq and pred_seq in config.py. However if you want to run multiple experiments at once can look at run_quick function located in main.py as reference. 
  
- 
+ ## Step 4: AUC Caluation 
  
  ## Citation 
 If you found repo useful, feel free to cite.
