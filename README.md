@@ -30,7 +30,11 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
   
  ## Step 2: Training
  We used two two models for our experiments Long Short Term Memory (LSTM) Model and BiTrap model.
- * Users can train their LSTM models on Avenue and ShanghaiTech by using function lstm_train in models.py
+ * Users can train their LSTM models on Avenue and ShanghaiTech
+   * Training Avenue:  ```python models.py ``` 
+     * In config.py change ```hyparams['input_seq'] and hyparams['pred_seq'] to match input/output trajectory length
+   * Training ShanghaiTech:  ```python models.py ``` 
+     * In config.py change ```hyparams['input_seq'] and hyparams['pred_seq'] to match input/output trajectory length
  
  For training BiTrap models refer forked repo [here](https://github.com/akanuasiegbu/bidireaction-trajectory-prediction).
  
