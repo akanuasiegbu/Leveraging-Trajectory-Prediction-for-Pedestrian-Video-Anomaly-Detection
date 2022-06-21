@@ -23,20 +23,38 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
 
  
  ## Step 1: Download Dataset
- * You use extracted bounding box Avenue and ShanghaiTech trajectoryies.
- * To want to recreate the input bounding box trajecoty 
+ * You use extracted bounding box Avenue and ShanghaiTech trajectories.
+ * To want to recreate the input bounding box trajectory 
  * Download [Avenue](http://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html) and [ShanghaiTech](https://svip-lab.github.io/dataset/campus_dataset.html) dataset 
    * Use [Deep-SORT-YOLOv4](https://github.com/LeonLok/Deep-SORT-YOLOv4/tree/a4b7d2e1263e6f1af63381a24436c5db5a4b6e91) commit number a4b7d2e
   
  ## Step 2: Training
  We used two two models for our experiments Long Short Term Memory (LSTM) Model and BiTrap model.
+ ### Training LSTM Models
  * Users can train their LSTM models on Avenue and ShanghaiTech
    * Training Avenue:  ```python models.py ``` 
      * In config.py change ```hyparams['input_seq'] and hyparams['pred_seq'] to match input/output trajectory length
    * Training ShanghaiTech:  ```python models.py ``` 
      * In config.py change ```hyparams['input_seq'] and hyparams['pred_seq'] to match input/output trajectory length
-* Users can train BiTrap models refer to repo[here]
- For training BiTrap models refer forked repo [here](https://github.com/akanuasiegbu/bidireaction-trajectory-prediction).
+### Training BiTrap Model
+*  For training BiTrap models refer forked repo [here](https://github.com/akanuasiegbu/bidireaction-trajectory-prediction).
+
+Train on Avenue Dataset
+```
+cd bitrap
+python tools/train.py --config_file configs/avenue.yml
+```
+
+Train on ShanghaiTech Dataset
+```
+cd bitrap
+python  tools/train.py --config_file configs/st.yml
+```
+
+To train/inferece on CPU or GPU, simply add `DEVICE='cpu'` or  `DEVICE='cuda'`. By default we use GPU for both training and inferencing.
+
+Note that you must set the input and output lengths to be the same in YML file used (```INPUT_LEN``` and ```PRED_LEN```) and ```bitrap/datasets/config_for_my_data.py``` (```input_seq``` and ```pred_seq```)
+
  
  
  
