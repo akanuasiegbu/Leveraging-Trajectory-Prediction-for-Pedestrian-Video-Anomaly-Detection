@@ -1,1 +1,1 @@
-docker build --network host -t abnormal_ped:latest .
+docker build --network host -t leveraging_traj_pred_anom_det:latest .
