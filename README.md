@@ -101,14 +101,14 @@ python tools/test.py --config_file configs/st.yml CKPT_DIR **DIR_TO_CKPT**
     * Then use ```python run_bitrap_auc.py ```
  
  ### LSTM AUC Calcuation
-  * In ``` experiments_code/run_bitrap_auc.py``` make sure ```exp['model_name']='lstm_network'```
+  * In ``` experiments_code/run_lstm_auc.py``` make sure ```exp['model_name']='lstm_network'```
   * Then set ```hyparams['input_seq']``` and ```hyparams['pred_seq']``` to desired length
   * Set ```hyparams['metric']``` to either ```'giou'```, ```'l2'``` ,or ```'iou'```
   * Set ```hyparams['errortype']``` to either ```'error_summed'``` or ```'error_flattened'``` 
  *  To run change ```load_pkl_file``` varible located in ```run_auc_bitrap.py``` to desired location
     * Then use ```python run_lstm_auc.py ```
  
- Refer to the main.py for inference. Would need to change the file locations 'train_file', 'test_file', 'pkl_file' in config.py. Note that if running a single input and output, would need to change the input_seq and pred_seq in config.py. However if you want to run multiple experiments at once can look at run_quick function located in main.py as reference. 
+If you want to run multiple LSTM/AUC refer to ```run_quick.py```
  ## Citation 
 If you found repo useful, feel free to cite.
 ```
