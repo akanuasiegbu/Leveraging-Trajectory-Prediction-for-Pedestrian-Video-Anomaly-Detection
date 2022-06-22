@@ -23,9 +23,9 @@ Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du
 
  
  ## Step 1: Download Dataset
- * You use extracted bounding box Avenue and ShanghaiTech trajectories.
+ * The extracted bounding box trajectories for Avenue and ShanghaiTech with the anomaly labels appended can be found [here](https://drive.google.com/drive/folders/1MNpbhB9LS7k0X_fK8BZWqGRoVfPxANZl?usp=sharing) .
  * To want to recreate the input bounding box trajectory 
- * Download [Avenue](http://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html) and [ShanghaiTech](https://svip-lab.github.io/dataset/campus_dataset.html) dataset 
+   * Download [Avenue](http://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html) and [ShanghaiTech](https://svip-lab.github.io/dataset/campus_dataset.html) dataset 
    * Use [Deep-SORT-YOLOv4](https://github.com/LeonLok/Deep-SORT-YOLOv4/tree/a4b7d2e1263e6f1af63381a24436c5db5a4b6e91) commit number a4b7d2e
   
  ## Step 2: Training
@@ -65,7 +65,8 @@ Trained BiTrap models for Avenue and ShanghiTech can be found [here](https://dri
 ##### Pretrained LSTM Models: 
 Trained LSTM models for Avenue and ShanghiTech can be found [here](https://drive.google.com/drive/folders/1kZUxDyCETg7FY_-WeICILeyUYUDJ-nEH)
 
-
+##### LSTM Inference
+We do not explictly save the LSTM trajectory outputs into a file (such as pkl). Therefore the inference and the AUC calcution step for the LSTM model are performed simultaneously. Please refer to LSTM AUC Calcuation section shown below.
 
 ##### BiTrap Inference
 To obtain BiTrap PKL files containing the pedestrain trajectory use commands below.
@@ -105,7 +106,7 @@ python tools/test.py --config_file configs/st.yml CKPT_DIR **DIR_TO_CKPT**
   * Then set ```hyparams['input_seq']``` and ```hyparams['pred_seq']``` to desired length
   * Set ```hyparams['metric']``` to either ```'giou'```, ```'l2'``` ,or ```'iou'```
   * Set ```hyparams['errortype']``` to either ```'error_summed'``` or ```'error_flattened'``` 
- *  To run change ```load_pkl_file``` varible located in ```run_auc_bitrap.py``` to desired location
+ *  To run change ```pretrained_model_loc``` varible located in ```run_lstm_auc.py``` to desired location of pretrained lstm model
     * Then use ```python run_lstm_auc.py ```
  
 If you want to run multiple LSTM/AUC refer to ```run_quick.py```
@@ -122,3 +123,6 @@ If you found repo useful, feel free to cite.
   pages={01-08},
   doi={10.1109/SSCI50451.2021.9660004}}
 ```
+
+### ToDo
+* ADD bitrap as submodule
