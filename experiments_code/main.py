@@ -216,8 +216,10 @@ def gen_vid(vid_name, pic_loc, frame_rate):
                                 save_vid_loc = save_vid_loc, 
                                 vid_name = vid_name, frame_rate = frame_rate )
 
-    
 
+
+
+    
 def main():
 
     load_lstm_model = False
@@ -255,10 +257,6 @@ def main():
         max1 = traindict['x_ppl_box'].max() if traindict['y_ppl_box'].max() <= traindict['x_ppl_box'].max() else traindict['y_ppl_box'].max()
         min1 = traindict['x_ppl_box'].min() if traindict['y_ppl_box'].min() >= traindict['x_ppl_box'].min() else traindict['y_ppl_box'].min()
 
-    # To load the pkl files from BiTrap
-    # pkldicts = [ load_pkl(loc['pkl_file'][exp['data']], exp['data']) ]
-
-    # plot_traj_gen_traj_vid(pkldicts[0], 'bitrap')
     
   
 
@@ -275,9 +273,6 @@ def main():
             # returning model right now but might change that in future and load instead
             lstm_model = lstm_train(traindict, max1, min1)
 
-    #Load Data
-    # pkldicts_temp = load_pkl('/home/akanu/output_bitrap/avenue_unimodal/gaussian_avenue_in_5_out_1_K_1.pkl')
-    
     
 
     pkldicts = []
@@ -287,16 +282,16 @@ def main():
 
         
 
-    # frame_traj_model_auc([lstm_model], [testdict], hyparams['metric'], hyparams['avg_or_max'], exp['model_name'])
+    # frame_traj_model_auc([lstm_model], [testdict], hyparams['metric'], hyparams['avg_or_max'], exp['model_name'], max1, min1)
     frame_traj_model_auc( 'bitrap', pkldicts, hyparams['metric'], hyparams['avg_or_max'], exp['model_name'], max1, min1)
     print('Input Seq: {}, Output Seq: {}'.format(hyparams['input_seq'], hyparams['pred_seq']))
     print('Metric: {}, avg_or_max: {}'.format(hyparams['metric'], hyparams['avg_or_max']))
-    # # Note would need to change mode inside frame_traj
 
 
     # classifer_train(traindict, testdict, lstm_model)
      
 
+    # plot_traj_gen_traj_vid(pkldicts[0], 'bitrap')
     # plot_traj_gen_traj_vid(pkldict,lstm_model)
 
     
@@ -308,7 +303,8 @@ def main():
 if __name__ == '__main__':
     # print('GPU is on: {}'.format(gpu_check() ) )
     start = time.time()
-    main()
+    # main()
+    auc_calc_lstm()
     # run_quick(window_not_one=True)
     end = time.time()
     # print(end - start)
