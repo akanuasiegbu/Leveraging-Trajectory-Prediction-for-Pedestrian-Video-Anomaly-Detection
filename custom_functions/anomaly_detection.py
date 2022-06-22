@@ -10,7 +10,7 @@ from custom_functions.utils import make_dir, SaveTextFile, SaveAucTxt, SaveAucTx
 from experiments_code.config import hyparams, loc, exp
 from custom_functions.auc_metrics import iou_as_probability, l2_error, giou_ciou_diou_as_metric
 from custom_functions.coordinate_change import xywh_tlbr
-
+from load_data import norm_train_max_min
 
 def frame_traj_model_auc(model, testdicts, metric, avg_or_max, modeltype, max1,min1):
     """

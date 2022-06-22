@@ -287,12 +287,4 @@ if __name__ == '__main__':
 
     pkldicts = []
     pkldicts.append(load_pkl(loc['pkl_file']['avenue_template'].format(20,10)))
-    # pkldicts.append(load_pkl(loc['pkl_file']['avenue_template'].format(5,5)))
-    
-    # pkldict = load_pkl(loc['pkl_file']['avenue_template'].format())
-    
-
-    error = combine_time(pkldicts, errortype='error_summed', models = 'bitrap')
-
-    # error = l2_error(pkldicts, 'bitrap' , 'error_flattened')
 
