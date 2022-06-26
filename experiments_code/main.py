@@ -64,15 +64,6 @@ def gpu_check():
 #             save = temp
 #         else:
 
-def find_ranges(iterable):
-    """Yield range of consecutive numbers."""
-    for group in mit.consecutive_groups(iterable):
-        group = list(group)
-        if len(group) == 1:
-            yield group[0]
-        else:
-            yield group[0], group[-1]
-
 
 def count_frame_level_human_accuracy(out_frame):
     y_true = out_frame['abnormal_gt_frame_metric']
@@ -80,57 +71,6 @@ def count_frame_level_human_accuracy(out_frame):
     tn, fp, fn,tp = confusion_matrix(y_true, y_pred).ravel()
 
     print('tn:{}, fp:{}, fn:{}, tp:{} '.format(tn, fp, fn, tp))
-
-
-def plot_frame_wise_scores(out_frame):
-    vid_to_split = np.unique(out_frame['vid'])
-
-    out = {}
-    for vid in vid_to_split:
-        vid_index = np.where(out_frame['vid'] == vid)[0]
-        # frames = np.array(out_frame['frame'], dtype=int)
-        frames = out_frame['frame']
-        framesort = np.argsort(frames[vid_index].reshape(-1))
-        out[vid] = {}
-        for key in out_frame.keys():
-            out[vid][key] = out_frame[key][vid_index][framesort]
-
-    
-    # for key in out.keys():
-    for key in out.keys():
-        fig,ax = plt.subplots(nrows=1, ncols=1, figsize=(10,5))
-        # abnorm = np.where(out[key]['abnormal_gt_frame_metric'] == 1)[0]
-        # norm = np.where(out[key]['abnormal_gt_frame_metric'] == 0)[0]
-        # ax.scatter(out[key]['frame'][abnorm], out[key]['prob'][abnorm], marker='.', color ='r')
-        # ax.scatter(out[key]['frame'][norm], out[key]['prob'][norm], marker='.', color ='b')
-        ax.plot(out[key]['frame'],out[key]['prob'])
-
-        index = np.where(out[key]['abnormal_gt_frame_metric'] ==1)[0]
-        index_range =list(find_ranges(index))
-        start = []
-        end = []
-
-        for i in index_range:
-            if len(i) == 2:
-                start.append(out[key]['frame'][i[0]])
-                end.append(out[key]['frame'][i[1]])
-            else:
-                temp = out[key]['frame'][i[0]]
-                start.append(temp)
-                end.append(temp)
-        
-
-        for s,e in zip(start,end):
-            ax.axvspan(s,e, facecolor='r', alpha=0.5)
-        # ax.axvspan(299, 306, facecolor='b', alpha=0.5)
-        # ax.axvspan(422, 493, facecolor='b', alpha=0.5)
-        # ax.axvspan(562, 604, facecolor='b', alpha=0.5)
-
-        ax.set_xlabel('Frames')
-        ax.set_ylabel('Anomaly Score' )
-        fig.savefig('testing_{}.jpg'.format(key[:-4]))  
-
-
 
 
     

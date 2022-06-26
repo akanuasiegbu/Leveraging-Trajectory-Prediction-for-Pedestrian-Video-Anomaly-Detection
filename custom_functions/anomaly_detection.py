@@ -86,7 +86,7 @@ def frame_traj_model_auc(model, testdicts, metric, avg_or_max, modeltype, max1,m
     fpr, tpr, thresholds = roc_curve(y_true_per_human, y_pred_per_human)
     AUC_human = auc(fpr,tpr)
     auc_human_frame = np.array([AUC_human, AUC_frame])
-    return auc_human_frame
+    return auc_human_frame, out_frame
 
 
 def anomaly_metric(prob, avg_or_max, pred_trajs, gt_box, vid_loc, frame_loc, person_id, abnormal_gt, abnormal_person, prob_in_time,
