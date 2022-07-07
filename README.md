@@ -1,6 +1,9 @@
 # Leveraging-Trajectory-Prediction-for-Pedestrian-Video-Anomaly-Detection
 Asiegbu Miracle Kanu-Asiegbu, Ram Vasudevan, and Xiaoxiao Du 
 
+## Clone Repo
+git clone --recurse-submodules https://github.com/akanuasiegbu/Leveraging-Trajectory-Prediction-for-Pedestrian-Video-Anomaly-Detection.git
+
 ## Installation 
   * scipy==1.4.1 
   * matplotlib==3.3.1 
@@ -124,5 +127,3 @@ If you found repo useful, feel free to cite.
   doi={10.1109/SSCI50451.2021.9660004}}
 ```
 
-### ToDo
-* ADD bitrap as submodule
