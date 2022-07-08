@@ -44,19 +44,19 @@ git clone --recurse-submodules https://github.com/akanuasiegbu/Leveraging-Trajec
 
 Train on Avenue Dataset
 ```
-cd bitrap
+cd bitrap_leveraging
 python tools/train.py --config_file configs/avenue.yml
 ```
 
 Train on ShanghaiTech Dataset
 ```
-cd bitrap
+cd bitrap_leveraging
 python  tools/train.py --config_file configs/st.yml
 ```
 
 To train/inferece on CPU or GPU, simply add `DEVICE='cpu'` or  `DEVICE='cuda'`. By default we use GPU for both training and inferencing.
 
-Note that you must set the input and output lengths to be the same in YML file used (```INPUT_LEN``` and ```PRED_LEN```) and ```bitrap/datasets/config_for_my_data.py``` (```input_seq``` and ```pred_seq```)
+Note that you must set the input and output lengths to be the same in YML file used (```INPUT_LEN``` and ```PRED_LEN```) and ```bitrap_leveraging/datasets/config_for_my_data.py``` (```input_seq``` and ```pred_seq```)
 
  
  
@@ -75,14 +75,14 @@ We do not explictly save the LSTM trajectory outputs into a file (such as pkl). 
 To obtain BiTrap PKL files containing the pedestrain trajectory use commands below.
 Test on Avenue dataset:
 ```
-cd bitrap
+cd bitrap_leveraging
 python tools/test.py --config_file configs/avenue.yml CKPT_DIR **DIR_TO_CKPT**
 
 ```
 
 Test on ShanghaiTech dataset:
 ```
-cd bitrap
+cd bitrap_leveraging
 python tools/test.py --config_file configs/st.yml CKPT_DIR **DIR_TO_CKPT**
 ```
 
